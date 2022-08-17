@@ -1,0 +1,59 @@
+{ % extends "blog/base.html" % }
+{ % block content % }
+        { % for post in posts % }
+                <h1>{{post.title}}</h1>
+                <p>By {{ post.author }} on  {{ post.date_posted }}</p>
+                <p>{{post.content}}</p>  
+        { % endfor % }                  
+{ % endblock content % }
+
+
+
+posts = [
+    {
+        'author' : 'nani',
+        'title' : 'Blog Post 1',
+        'content' : 'First post content',
+        'date_posted' : 'August 31,1991'
+    },
+    {
+        'author' : 'jyothi',
+        'title' : 'Blog Post 2',
+        'content' : 'Second post content',
+        'date_posted' : 'May 31,2000'
+    }
+
+]
+
+def home(request):
+   context =  {
+           'posts' : posts 
+    }
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+      {% if title %}
+        <title>Django Blog - {{ title }} </title>
+       {% else %} 
+        <title>Django Blog</title>
+       {% else if %} 
+</head>
+    <body>
+        { % block content % }{ % endblock % }
+    </body>
+</html>
+
+
+
+
+
+
+{ % extends "blog/base.html" % }  
+{ % block content % }
+   <h1> About Page </h1>
+{ % endblock content %}
